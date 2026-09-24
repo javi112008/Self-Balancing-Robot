@@ -50,12 +50,11 @@ Both motors receive the same correction. The firmware limits motor output and us
 
 - Complementary filter for pitch estimation
 - PID control with adjustable gains and target angle
-- Control loop with a 10 ms sampling target
-- Nonblocking Serial input
-- EEPROM storage with a format marker, checksum, and value validation
-- Serial telemetry for measured angle, motor output, target angle, and running state
-- Motor-output deadband and latched fault stopping
-- Explicit `go` and `stop` commands
+- Serial tuning without recompiling or reflashing
+- EEPROM storage for settings between power cycles
+- Serial telemetry for angle, calculated PID output, and PID values
+- Motor-output deadband and tilt cutoff
+- Serial `stop` and `go` commands
 
 ## Serial Interface
 
@@ -63,14 +62,16 @@ Both motors receive the same correction. The firmware limits motor output and us
 
 | Command | Follow-up input | Action |
 | --- | --- | --- |
-| `pid` | Three space-separated values, such as `49 0.2 0.35` | Validates and saves Kp, Ki, and Kd |
-| `angle` | Target angle in degrees, such as `6.9` | Validates and saves the balance point |
-| `go` | None | Enables balancing when sensor readings are valid and the estimated pitch is within ±20° |
-| `stop` | None | Stops the motors and cancels pending input |
+| `pid` | Three space-separated values, such as `49 0.2 0.35` | Updates and saves Kp, Ki, and Kd |
+| `angle` | Target angle in degrees, such as `6.9` | Updates and saves the balance point |
+| `stop` | None | Disables motor output until `go` or a board reset |
+| `go` | None | Re-enables motor output, subject to the existing deadband and tilt cutoff |
 
-The robot starts stopped. Entering `pid` or `angle` stops the motors while sensor sampling continues. After entering new values, send `go` to resume balancing.
+Balancing starts automatically after startup, as in the original firmware. Send each command on its own line. After `pid` or `angle`, wait for the prompt before sending the requested numbers.
 
-PID values must fall between 0 and 1000. The target angle must fall between −20° and +20°. These are input limits, not recommended tuning ranges.
+The motors stop while the firmware waits for tuning values. After entry, balancing resumes unless you previously sent `stop`. Changing settings does not override a manual stop.
+
+While stopped, the firmware continues sensor processing and Serial telemetry and clears the integral each loop. The displayed output remains the calculated PID command; it can be nonzero even when the motors are disabled.
 
 ## Software
 
