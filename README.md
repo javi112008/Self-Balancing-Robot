@@ -7,10 +7,10 @@ I built this project to explore embedded systems and feedback control through ha
 ## DEMO
 
 **Original Prototype (made out of cardboard)**
-<img width="500" height="500" alt="IMG_2371" src="https://github.com/user-attachments/assets/86f7657f-6a68-448f-84a4-8d68fc6ab97c" />
+<img width="1000" height="1000" alt="IMG_2371" src="https://github.com/user-attachments/assets/86f7657f-6a68-448f-84a4-8d68fc6ab97c" />
 
 **3D MODEL**
-<img width="500" height="500" alt="IMG_2342" src="https://github.com/user-attachments/assets/9d760ab5-ed9d-4c1e-8e83-ffc45d172418" />
+<img width="1000" height="1000" alt="IMG_2342" src="https://github.com/user-attachments/assets/9d760ab5-ed9d-4c1e-8e83-ffc45d172418" />
 
 **Before tuning**
 
