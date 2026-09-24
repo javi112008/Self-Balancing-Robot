@@ -7,10 +7,10 @@ I built this project to explore embedded systems and feedback control through ha
 ## DEMO
 
 **Original Prototype (made out of cardboard)**
-<img width="3024" height="4032" alt="IMG_2371" src="https://github.com/user-attachments/assets/86f7657f-6a68-448f-84a4-8d68fc6ab97c" />
+<img width="500" height="500" alt="IMG_2371" src="https://github.com/user-attachments/assets/86f7657f-6a68-448f-84a4-8d68fc6ab97c" />
 
 **3D MODEL**
-<img width="1170" height="2532" alt="IMG_2342" src="https://github.com/user-attachments/assets/9d760ab5-ed9d-4c1e-8e83-ffc45d172418" />
+<img width="500" height="500" alt="IMG_2342" src="https://github.com/user-attachments/assets/9d760ab5-ed9d-4c1e-8e83-ffc45d172418" />
 
 **Before tuning**
 
@@ -79,7 +79,6 @@ Written in **C++** using the **Arduino framework** and **PlatformIO**. The MPU60
 | File | Description |
 | --- | --- |
 | `src/main.cpp` | Sensor processing, PID controller, Serial interface, and motor control |
-| `platformio.ini` | Arduino Uno configuration and dependencies |
 | `docs/WIRING.md` | Pin assignments and sensor orientation |
 | `.github/workflows/build.yml` | Automated PlatformIO build workflow |
 
