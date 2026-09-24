@@ -41,6 +41,7 @@ double integral = 0.0;
 double derivative = 0.0;
 double output = 0.0;
 unsigned long prevTime;
+bool motorsEnabled = true;
 
 // MPU6050 raw data
 int16_t ax, ay, az, gx, gy, gz;
@@ -99,6 +100,7 @@ void loop() {  // Read MPU6050 data and compute PID output
 
   accAngle = atan2(-ax, az) * 180.0 / PI; //CONVERT TO DEGREES
   gyroRate = gy / 131.0;
+
   // Complementary filter to combine accelerometer and gyroscope data
   angle = alpha * (angle + gyroRate * dt) + (1 - alpha) * accAngle;
 
@@ -114,7 +116,10 @@ void loop() {  // Read MPU6050 data and compute PID output
   //clamp output to motor speed range
   output = constrain(output, -255, 255);
 
-  if (abs(output) < 10) {
+  if (!motorsEnabled) {
+    motorStop();
+    integral = 0;
+  } else if (abs(output) < 10) {
     motorStop();
   } else if (angle > -30 && angle < 30) {
     if (output > 0) moveBackward(output);
@@ -142,7 +147,16 @@ void handleCommands() {
     String userIn = Serial.readStringUntil('\n'); 
     userIn.trim();
 
-    if (userIn == "pid") {
+    if (userIn == "stop") {
+      motorsEnabled = false;
+      motorStop();
+      Serial.println("Motors stopped. Type go to resume.");
+    }
+    else if (userIn == "go") {
+      motorsEnabled = true;
+      Serial.println("Balancing resumed.");
+    }
+    else if (userIn == "pid") {
       motorStop();
       Serial.println("Enter Kp, Ki, Kd:");
       while (Serial.available() == 0);
