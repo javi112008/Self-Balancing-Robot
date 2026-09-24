@@ -4,6 +4,27 @@ A two-wheel robot built with an Arduino Uno, an MPU6050 IMU, and an L298N motor 
 
 I built this project to explore embedded systems and feedback control through hands-on testing. The work involved integrating sensors and motors, filtering noisy measurements, and tuning the controller’s response.
 
+## DEMO
+
+**Original Prototype (made out of cardboard)**
+<img width="3024" height="4032" alt="IMG_2371" src="https://github.com/user-attachments/assets/86f7657f-6a68-448f-84a4-8d68fc6ab97c" />
+
+**3D MODEL**
+<img width="1170" height="2532" alt="IMG_2342" src="https://github.com/user-attachments/assets/9d760ab5-ed9d-4c1e-8e83-ffc45d172418" />
+
+**Before tuning**
+
+https://github.com/user-attachments/assets/f33246b4-3727-45be-8490-7fc7e9e3ba52
+
+
+
+**After being fully tuned :)**
+
+https://github.com/user-attachments/assets/b1512971-19ff-4db9-85f9-31aef002ed15
+
+
+
+
 ## Hardware
 
 | Component | Purpose |
