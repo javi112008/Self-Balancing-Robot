@@ -30,7 +30,7 @@ https://github.com/user-attachments/assets/b1512971-19ff-4db9-85f9-31aef002ed15
 | Component | Purpose |
 | --- | --- |
 | Arduino Uno R3 | Runs the filtering and control loop |
-| MPU6050 / GY-521 | Measures acceleration and angular velocity |
+| MPU6050 | Measures acceleration and angular velocity |
 | L298N motor driver | Controls motor direction and speed |
 | Two TT 1:48 geared motors | Drive the wheels |
 
