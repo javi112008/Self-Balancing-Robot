@@ -10,7 +10,7 @@ I built this project to explore embedded systems and feedback control through ha
 <img width="700" height="1000" alt="IMG_2371" src="https://github.com/user-attachments/assets/86f7657f-6a68-448f-84a4-8d68fc6ab97c" />
 
 **3D MODEL**
-<img width="700" height="1000" alt="IMG_2342" src="https://github.com/user-attachments/assets/9d760ab5-ed9d-4c1e-8e83-ffc45d172418" />
+<img width="1170" height="1796" alt="IMG_2342" src="https://github.com/user-attachments/assets/3bb1a5f7-2940-4e69-a7c1-6d0d2a08d032" />
 
 **Before tuning**
 
